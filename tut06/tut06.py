@@ -20,6 +20,9 @@ def regex_renamer():
 	pat = [0, 2, 3, 1]																	#name of webseries ends here in file name
 
 	path = "wrong_srt/" + series[webseries_num]											#path of given series
+	
+	pathnew = "corrected_srt/" + series[webseries_num]
+	
 	for episode in os.listdir(path) :													#iterating all files in folder of webseries
 		old_path = path + '/' + episode													#path of the file
 		words = re.compile(r'\w+')														#using regex
@@ -56,8 +59,8 @@ def regex_renamer():
 		if webseries_num >= 2 :
 			new_path += " " + episode_name
 		new_path += "." + words_found[-1]												#making new_path
-		new_path = path + "/" + new_path												#making new_path
-		os.rename(old_path, new_path)													#renaming file as per requirement
+		new_path = pathnew + "/" + new_path												#making new_path
+		open(new_path, 'a').close()
 
 
 
