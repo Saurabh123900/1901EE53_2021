@@ -65,7 +65,7 @@ def feedback_not_submitted():
 			stud[row[1]] = row
 			cnt+=1
 	
-	output_file_name = "course_feedback_remaining2.xlsx"
+	output_file_name = "course_feedback_remaining.xlsx"
 	wb = load_workbook(output_file_name) 
 	sheet = wb.active
 	cur = 2                                                                                   
