@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+   <div class="jumbotron container">
+        <h1> Marksheet Generator </h1>
+    </div>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+            <div class="card mb-3 bg-info">
+                <div class="card-body">
+                    <p class="lead">Browse For master_roll.csv</p>
+                    <input type="file" id="myfile" name="myfile"><br><br>
+                </div>
+            </div>
+
+            <div class="card mb-3 bg-info">
+                <div class="card-body">
+                    <p class="lead">Browse For response.csv</p>
+                    <input type="file" id="response" name="response"><br><br>
+                </div>
+            </div>
+
+            <div class = "row align-items-center">
+                <div class="col-xs-12 col-sm-4 card mb-3">
+                    <div class="card-body">
+                        <p class="lead">
+                            <label for="cm">Marks For Correct Ans</label>
+                            <input type="number" id="cm" name="cm"><br><br>
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-1"></div>
+
+                <div class="col-xs-12 col-sm-4 card mb-3">
+                    <div class="card-body">
+                        <p class="lead">
+                            <label for="nm">Marks For Incorrect Ans</label>
+                            <input type="number" id="nm" name="nm"><br><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 bg-info">
+                <div class="card-body">
+                    <p class="lead">
+                        <input type="submit" name = 'submit1' value="Generate Roll number wise marksheet">
+                    </p>
+                </div>
+            </div> 
+        
+
+            <div class="card mb-3 bg-info">
+                <div class="card-body">
+                    <p class="lead"> 
+                        <input type="submit" name = 'submit2' value="Generate concise marksheet with Roll no , obtained marks, marks after negative">
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3 bg-info">
+                <div class="card-body">
+                    <p class="lead">
+                        <input type="submit" name = 'submit3' value="Send Email">
+                    </p>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+  </body>
+</html>

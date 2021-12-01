@@ -1,0 +1,14 @@
+from django.urls import path
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+#from mysite.core import views
+
+app_name = 'Report_Receiver'
+urlpatterns = [
+    path('', views.index, name='index'),
+    
+]
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root-settings.MEDIA_ROOT)
