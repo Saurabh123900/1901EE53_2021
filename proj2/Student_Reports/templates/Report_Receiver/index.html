@@ -30,6 +30,25 @@
     </div>
     <div class="container">
         <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+            <div class = "row">
+                <div class="col-xs-12 col-sm-4 card mb-3 bg-info">
+                    <div class="card-body">
+                        <p class="lead">Browse For signature</p>
+                        <input type="file" id="sig" name="sig"><br><br>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-2"> </div>
+                <div class="col-xs-12 col-sm-4 card mb-3 bg-info">
+                    <div class="card-body">
+                        <p class="lead">Browse For seal</p>
+                        <input type="file" id="seal" name="seal"><br><br>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" name = 'upload' value="UPLOAD">
+        </form>
+        <br>
+        <form method="post" enctype="multipart/form-data"> {% csrf_token %}
 
             <div class="card mb-3 bg-info">
                 <div class="card-body">

@@ -1,4 +1,7 @@
 from fpdf import FPDF
+from datetime import date
+today = date.today()
+import os
 
 class PDF(FPDF):
 
@@ -19,7 +22,33 @@ class PDF(FPDF):
     
     # Page footer
     def footer(self):
-        self.image('footer.jpg', 5,200, 410)
+        date = today.strftime("%b-%d-%Y")
+        date = "Date of Issue: "+ str(date)
+        
+        path1=os.path.join("uploaded_sign","seal.jpg")
+        path2=os.path.join("uploaded_sign","signature.png")
+        self.set_font(size = 15)
+        self.image(path1, 160,200, 65)
+        self.image(path2, 300,200, 75)
+
+        self.set_y(self.get_y() + 55)
+        self.set_x(self.get_x() + 20)
+        self.cell(10, 10, date, border=0)
+        x_left = self.get_x() +22
+        y1 = self.get_y() + 10
+        x_right = self.get_x() + 50
+        self.line(x_left,y1,x_right,y1)
+        self.set_y(self.get_y() - 55)
+        self.set_x(self.get_x() - 20)
+
+        self.set_y(self.get_y() + 65)
+        self.set_x(self.get_x() + 300)
+
+        x_left = self.get_x()
+        y1 = self.get_y() 
+        x_right = self.get_x() + 65
+        self.line(x_left,y1,x_right,y1)
+        self.cell(200 , 10, "Assistant Registrar (Academic)", border=0)
 
     def create_table(self, table_data, title='', data_size = 5, title_size=10, align_data='L', align_header='L', cell_width='even', x_start='x_default',y_start = 'y_default',emphasize_data=[], emphasize_style=None,emphasize_color=(0,0,0),f = 0,st = ""): 
         
