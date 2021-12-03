@@ -61,7 +61,7 @@ def generate() :
             if semi % 4 == 1 :
                 ff= +9.999999999999998
             sheet = wb["Overall"]
-            sst = "Credits taken: " + str(sheet.cell(7,semi).value) + "     Credits Cleared:  " + str(clear) + "     SPI: " + str(sheet.cell(6,semi).value) + "     CPI: " + str(sheet.cell(8,semi).value)
+            sst = "Credits taken: " + str(sheet.cell(7,semi+1).value) + "     Credits Cleared:  " + str(clear) + "     SPI: " + str(sheet.cell(6,semi+1).value) + "     CPI: " + str(sheet.cell(8,semi+1).value)
             if (len(data) == 0) :
                 continue
             pdf.create_table(table_data = data,title="Semester" + str(semi), x_start = ((semi-1)%4)*100 + ff,y_start = 50 + ((semi-1)//4) *70, f = semi%2,cell_width='uneven',st = sst)
